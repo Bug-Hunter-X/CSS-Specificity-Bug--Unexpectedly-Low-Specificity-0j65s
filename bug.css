@@ -1,0 +1,20 @@
+The following CSS code snippet demonstrates an uncommon issue where a selector's specificity is unexpectedly low, leading to styles not being applied as intended.  This often happens when dealing with nested selectors and attribute selectors, particularly in complex situations.
+
+```css
+.container {
+  width: 200px;
+  background-color: lightblue;
+}
+
+.container [type='text'] {
+  width: 100%;
+  background-color: lightcoral; /* This rule should override the container's styles */
+}
+
+input[type='text'] {
+  width: 150px;
+  background-color: lightgreen; /* This is more specific but might not apply if the container's background is not removed */
+}
+```
+
+In this example, one might expect the `input[type='text']` selector to always override the styles set for `.container [type='text']`. However, the specificity calculation in CSS may sometimes yield surprising results.
