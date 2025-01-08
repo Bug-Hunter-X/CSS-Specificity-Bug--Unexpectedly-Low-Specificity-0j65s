@@ -1,0 +1,20 @@
+The solution involves restructuring the selectors to ensure higher specificity for the intended styles.  One approach is to increase the specificity of the rule targeting `input[type='text']`.  Adding an extra class or ID can do this efficiently.
+
+```css
+.container {
+  width: 200px;
+  background-color: lightblue;
+}
+
+.container input[type='text'] {
+  width: 100%;
+  background-color: lightcoral; 
+}
+
+.container .special-input {
+  width: 150px;
+  background-color: lightgreen;
+}
+```
+
+Now,  `.container input[type='text']` has a higher specificity than `.container [type='text']` and `input[type='text']`, thereby ensuring the desired styles are applied.  Adding a class name '.special-input' adds to the specificity as well.
